@@ -470,15 +470,6 @@ def traiterPage (page) :
 
 fiches = [f for f in listdir('BASOL_pages/') if isfile(join('BASOL_pages/', f))]
 
-# Lecture de la page
-raw_page = open('BASOL_pages/fiche_33.0042.html', encoding="utf-8")
-content = BeautifulSoup(raw_page, "lxml")
-content = corrigerPage(content)
-
-responsable = {}
-balStrong = content.findAll("strong")
-traiterSurveillance(content, balStrong)
-
 basol = {}
 sites = []
 from datetime import datetime
