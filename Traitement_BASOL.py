@@ -473,14 +473,15 @@ fiches = [f for f in listdir('BASOL_pages/') if isfile(join('BASOL_pages/', f))]
 basol = {}
 sites = []
 from datetime import datetime
-print(datetime.now())
+print('Début du traitement : ' + str(datetime.now()))
+print('Fiches à traiter : %d' % len(fiches))
 i = 0
-for fiche in fiches : 
-    #print(fiche)
-    if i % 100 == 0 : print(i)
-    i = i+1
+for fiche in fiches:
+    i += 1
+    if i % 100 == 0: 
+        print('Fiches traitées : %d' % i)
     sites.append(traiterPage(fiche))
-print(datetime.now())
+print('Fin du traitement : ' + str(datetime.now()))
 
 basol['sites'] = sites
 
